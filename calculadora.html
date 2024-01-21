@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM</title>
+</head>
+<body>
+
+    <h1>Calculadora</h1>
+<input type="number" placeholder="Introduce el primer número" class="num1">
+<input type="number" placeholder="Introduce el segundo número" class="num2">
+<button onclick="sumar()">Calcular</button>
+
+<script>
+    // Definir las variables fuera de la función
+    let input1 = document.querySelector(".num1");
+    let input2 = document.querySelector(".num2");
+    let body = document.getElementsByTagName("body")[0];
+
+    function sumar(){
+        //Con el .value estamos obtenido los valores que el usuario ha ingresado en el input, de no poner .value estariamos obteniendo la referencia al elemento html, no al valor que el usuario ha ingresado
+        let valor1 = input1.value;
+        let valor2 = input2.value;
+
+        // Convertir los valores a números y sumar
+        let resultado = parseFloat(valor1) + parseFloat(valor2);
+
+        let elemento = document.createElement("p");
+        elemento.innerText = `El resultado de la suma es: ${resultado}`;
+        body.appendChild(elemento);
+        
+        console.log(`El resultado de la suma es: ${resultado}`);
+    }
+</script>
+
+
+</body>
+</html>
